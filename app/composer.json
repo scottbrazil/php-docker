@@ -1,0 +1,28 @@
+{
+    "name": "scott7rj/urissane",
+    "description": "A Docker demo app",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Scott Brazill",
+            "email": "scott7rj@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "symfony/cache": "^7.3",
+        "predis/predis": "^3.0"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "scripts": {
+        "run-phpunit": "vendor/bin/phpunit"
+    }
+}
