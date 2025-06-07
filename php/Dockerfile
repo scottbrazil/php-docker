@@ -22,6 +22,17 @@ COPY ./app/composer.* ./
 
 RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction
 
+RUN apt-get update && apt-get clean && apt-get install -y build-essential
+RUN apt-get install software-properties-common -y
+RUN apt update
+RUN apt-get install -y python3.10 
+RUN apt-get install -y python3-pip
+RUN apt install -y python3-requests
+
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY ./app .
 
 RUN composer dump-autoload --optimize

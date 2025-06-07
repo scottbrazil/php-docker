@@ -18,7 +18,7 @@ services:
     image: mysql:9.3
     container_name: db-php
     volumes:
-        - mysqldata:/var/lib/mysql
+        - /tmp/mysqldata:/var/lib/mysql
     ports:
       - "0.0.0.0:3306:3306"
     restart: unless-stopped
@@ -40,12 +40,10 @@ services:
     container_name: app-php
     volumes:
       - ./app:/var/www/html
+      - ./scripts:/opt
     restart: unless-stopped
     networks:
       - php-network
-
-volumes:
-  mysqldata:
 
 networks:
   php-network:
