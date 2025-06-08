@@ -39,9 +39,11 @@ services:
       dockerfile: ./php/Dockerfile
     container_name: app-php
     volumes:
+      - /var/www/html/vendor
       - ./app:/var/www/html
       - ./scripts:/opt
     restart: unless-stopped
+    #command: sh -c "composer dump-autoload --optimize"
     networks:
       - php-network
 
